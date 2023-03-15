@@ -1,0 +1,30 @@
+body {
+    background-color: rgb(234, 227, 220);
+
+    .navbar {
+        background-color: rgb(218, 194, 194);
+
+        .navbar-text {
+            margin: 5px auto;
+            padding: 10px;
+            background-color: rgb(57, 124, 65);
+            color: white;
+            border-radius: 5px;
+        }
+
+
+        .nav-link,
+        .navbar-brand {
+            color: rgb(251, 251, 251);
+        }
+    }
+
+    .logo {
+        width: 100px;
+        height: auto;
+    }
+    .navbar-toggler{
+        border: solid 1px black;
+    }
+
+}

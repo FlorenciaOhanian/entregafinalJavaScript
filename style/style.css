@@ -1,0 +1,24 @@
+body {
+  background-color: rgb(234, 227, 220);
+}
+body .navbar {
+  background-color: rgb(218, 194, 194);
+}
+body .navbar .navbar-text {
+  margin: 5px auto;
+  padding: 10px;
+  background-color: rgb(57, 124, 65);
+  color: white;
+  border-radius: 5px;
+}
+body .navbar .nav-link,
+body .navbar .navbar-brand {
+  color: rgb(251, 251, 251);
+}
+body .logo {
+  width: 100px;
+  height: auto;
+}
+body .navbar-toggler {
+  border: solid 1px black;
+}/*# sourceMappingURL=style.css.map */
