@@ -17,14 +17,25 @@ body {
         .navbar-brand {
             color: rgb(251, 251, 251);
         }
+
+        .navbar-toggler {
+            border: solid 1px black;
+        }
     }
 
     .logo {
         width: 100px;
         height: auto;
     }
-    .navbar-toggler{
-        border: solid 1px black;
+
+    .imgProducto {
+        width: 100px;
+        height: auto;
     }
 
+.card-body{
+    object-fit: contain;
+    margin: 5px;
+    border: solid black 3px;
+}
 }
