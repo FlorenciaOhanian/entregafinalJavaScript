@@ -20,7 +20,11 @@ const productosCuchillos = [cuchillo1, cuchillo2, cuchillo3, cuchillo4, cuchillo
 
 let carrito = [];
 
-const contenedorCuchillos = document.getElementById("contenedorCuchillos");
+if (localStorage.getItem("carrito")) {
+    carrito = JSON.parse(localStorage.getItem("carrito"));
+}
+
+const contenedorCuchillos = document.getElementById("contenedorTenedores");
 
 const mostrarProductos = () => {
     productosCuchillos.forEach(producto => {
@@ -28,15 +32,20 @@ const mostrarProductos = () => {
         card.classList.add("col-xl-5", "col-md-6", "col-sm-12");
         card.innerHTML = `
                         <div>
-                            
                             <div class="card-body row">
-                                                        <img src= " ${producto.img}" class="card-img-top">
-                                                        <h5 class="card-title"> ${producto.nombre} </h5>
-                                                        <p class="card-text"> ${producto.marca}</p>
-                                                        <p class="card-text"> ${producto.precio}</p>
-                                                        <p class="btn btn-dark"> Agregar a carrito </p>
-                            </div>`
+                                <img src= " ${producto.img}" class="card-img-top">
+                                <h5 class="card-title"> Nombre: ${producto.nombre} </h5>
+                                <p class="card-text"> Marca: ${producto.marca}</p>
+                                <p class="card-text"> Precio: ${producto.precio}</p>
+                                <button class="btn btn-dark" id="boton${producto.id}"> Agregar al carrito </button>
+                            </div>
+                        </div>`
         contenedorCuchillos.appendChild(card);
+
+        const boton = document.getElementById(`boton${producto.id}`);
+        boton.addEventListener("click", () => {
+            agregarAlCarrito(producto.id);
+        })
     })
 }
 
@@ -50,5 +59,12 @@ const agregarAlCarrito = (id) => {
         const producto = productosCuchillos.find(producto => producto.id === id);
         carrito.push(producto);
     }
-    console.log(carrito)
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
+
+const contendorCarrito = document.getElementById("contenedorCarrito")
+const verCarrito = document.getElementById("verCarrito");
+
+verCarrito.addEventListener("click", () => {
+    mostrarCarrito();
+})

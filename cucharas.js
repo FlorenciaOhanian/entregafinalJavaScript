@@ -19,6 +19,9 @@ const productosCucharas = [cuchara1, cuchara2, cuchara3, cuchara4, cuchara5]
 
 let carrito = [];
 
+if (localStorage.getItem("carrito")) {
+    carrito = JSON.parse(localStorage.getItem("carrito"));
+}
 const contenedorCucharas = document.getElementById("contenedorCucharas");
 
 const mostrarProductos = () => {
@@ -36,6 +39,11 @@ const mostrarProductos = () => {
                                 <p class="btn btn-dark"> Agregar a carrito </p>
                             </div>`
         contenedorCucharas.appendChild(card);
+        
+        const boton = document.getElementById(`boton${producto.id}`);
+        boton.addEventListener("click", () => {
+            agregarAlCarrito(producto.id);
+        })
     })
 }
 
@@ -49,5 +57,11 @@ const agregarAlCarrito = (id) => {
         const producto = productosCucharas.find(producto => producto.id === id);
         carrito.push(producto);
     }
-    console.log(carrito)
 }
+
+const contendorCarrito = document.getElementById("contenedorCarrito")
+const verCarrito = document.getElementById("verCarrito");
+
+verCarrito.addEventListener("click", () => {
+    mostrarCarrito();
+})

@@ -10,15 +10,18 @@ class producto {
     }
 }
 
-const set1 = new producto("siena", "Nombre: Siena", "Marca: Vega", "Precio: 100000", "../img/set1.jpg", "12 pz.")
-const set2 = new producto("verona", "Nombre: Verona", "Marca: Pulsiva", "Precio: 120000", "../img/set2.jpg", "12 pz.")
-const set3 = new producto("venecia", "Nombre: Venecia", "Marca: Vega", "Precio: 135000", "../img/set3.jpg", "12 pz.")
-const set4 = new producto("catania", "Nombre: Catania", "Marca: Vega", "Precio: 115000", "../img/set4.jpg", "12 pz.")
-const set5 = new producto("taormina", "Nombre: Taormina", "Marca: Pulsiva", "Precio: 138000", "../img/set5.jpg", "12 pz.")
+const set1 = new producto("siena",  "Siena", Vega,  100000, "../img/set1.jpg", "12 pz.")
+const set2 = new producto("verona",  "Verona",  Pulsiva, 120000, "../img/set2.jpg", "12 pz.")
+const set3 = new producto("venecia",  "Venecia",  Vega, 135000, "../img/set3.jpg", "12 pz.")
+const set4 = new producto("catania",  "Catania",  Vega, 115000, "../img/set4.jpg", "12 pz.")
+const set5 = new producto("taormina",  "Taormina",  Pulsiva, 138000, "../img/set5.jpg", "12 pz.")
 
 const productosSet = [set1, set2, set3, set4, set5]
 
 let carrito = [];
+if (localStorage.getItem("carrito")) {
+    carrito = JSON.parse(localStorage.getItem("carrito"));
+}
 
 const contenedorSet = document.getElementById("contenedorSet");
 
@@ -30,9 +33,9 @@ const mostrarProductos = () => {
                         <div>
                             <div class="card-body">
                                                     <img src= " ${producto.img}" class="card-img-top">
-                                                    <h5 class="card-title"> ${producto.nombre} </h5>
-                                                    <p class="card-text"> ${producto.marca}</p>
-                                                    <p class="card-text"> ${producto.precio}</p>
+                                                    <h5 class="card-title"> Nombre: ${producto.nombre} </h5>
+                                                    <p class="card-text"> Marca: ${producto.marca}</p>
+                                                    <p class="card-text"> Precio: $ ${producto.precio}</p>
                                                     <p class="btn btn-dark"> Agregar a carrito </p>
                             </div>`
         contenedorSet.appendChild(card);
@@ -49,5 +52,12 @@ const agregarAlCarrito = (id) => {
         const producto = productosSet.find(producto => producto.id === id);
         carrito.push(producto);
     }
-    console.log(carrito)
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
+
+const contendorCarrito = document.getElementById("contenedorCarrito")
+const verCarrito = document.getElementById("verCarrito");
+
+verCarrito.addEventListener("click", () => {
+    mostrarCarrito();
+})

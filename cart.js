@@ -57,3 +57,9 @@ const eliminarTodoElCarrito = () => {
     mostrarCarrito();
     localStorage.clear();
 }
+
+function recuperoValores (carrito) {
+    
+
+}
+
