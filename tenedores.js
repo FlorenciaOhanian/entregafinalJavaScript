@@ -9,15 +9,19 @@ class producto {
         this.cantidad = 1;
     }
 }
-const tenedor1 = new producto("estocolmo", "Nombre: Estocolmo", "Marca: Vega", "tenedor", "Precio: $ 16000", "../img/tenedor1.jpg", "12 pz.")
-const tenedor2 = new producto("paris", "Nombre:Paris", "Marca: Vega",  "Precio: $ 40000", "img/tenedor2.jpg", "12 pz.")
-const tenedor3 = new producto("madrid", "Nombre: Madrid", "Marca: Vega", "Precio: $ 18000", "img/tenedor3.jpg", "12 pz.")
-const tenedor4 = new producto("londres", "Nombre: Londres", "Marca: Vega", "Precio: $ 28000", "img/tenedor4.jpg", "12 pz.")
-const tenedor5 = new producto("sydney", "Nombre: Sydney", "Marca: Pulsiva", "Precio: $ 16000", "img/tenedor5.jpg", "12 pz.")
+const tenedor1 = new producto("estocolmo", "Estocolmo", "Vega", 16000, "../img/tenedor1.jpg", "12 pz.")
+const tenedor2 = new producto("paris", "Paris", "Vega", 40000, "../img/tenedor2.jpg", "12 pz.")
+const tenedor3 = new producto("madrid", "Madrid", "Vega", 18000, "../img/tenedor3.jpg", "12 pz.")
+const tenedor4 = new producto("londres", "Londres", "Vega", 28000, "../img/tenedor4.jpg", "12 pz.")
+const tenedor5 = new producto("sydney", "Sydney", "Pulsiva", 16000, "../img/tenedor5.jpg", "12 pz.")
 
 const productosTenedores = [tenedor1, tenedor2, tenedor3, tenedor4, tenedor5]
 
 let carrito = [];
+
+if (localStorage.getItem("carrito")) {
+    carrito = JSON.parse(localStorage.getItem("carrito"));
+}
 
 const contenedorTenedores = document.getElementById("contenedorTenedores");
 
@@ -27,15 +31,40 @@ const mostrarProductos = () => {
         card.classList.add("col-xl-5", "col-md-6", "col-sm-12");
         card.innerHTML = `
                         <div>
-                            <img src= " ${producto.img}" class="card-img-top imgProducto">
                             <div class="card-body row">
-                                <h5 class="card-title"> ${producto.nombre} </h5>
-                                <p class="card-text"> ${producto.marca}</p>
-                                <p class="card-text"> ${producto.precio}</p>
-                                <p class="btn btn-dark"> Agregar a carrito </p>
-                            </div>`
+                                <img src= " ${producto.img}" class="card-img-top">
+                                <h5 class="card-title"> Nombre: ${producto.nombre} </h5>
+                                <p class="card-text"> Marca: ${producto.marca}</p>
+                                <p class="card-text"> Precio: ${producto.precio}</p>
+                                <button class="btn btn-dark" id="boton${producto.id}"> Agregar al carrito</button>
+                            </div>
+                        </div>`
         contenedorTenedores.appendChild(card);
+
+        const boton = document.getElementById(`boton${producto.id}`);
+        boton.addEventListener("click", () => {
+            agregarAlCarrito(producto.id);
+        })
     })
 }
 
 mostrarProductos();
+
+const agregarAlCarrito = (id) => {
+    const productoCargado = carrito.find(producto => producto.id === id);
+    if (productoCargado) {
+        productoCargado.cantidad++;
+    } else {
+        const producto = productosTenedores.find(producto => producto.id === id);
+        carrito.push(producto);
+    }
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+const contendorCarrito = document.getElementById("contenedorCarrito")
+const verCarrito = document.getElementById("verCarrito");
+
+verCarrito.addEventListener("click", () => {
+    mostrarCarrito();
+})
+
