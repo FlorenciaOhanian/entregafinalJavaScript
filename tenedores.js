@@ -18,9 +18,11 @@ const tenedor5 = new producto("sydney", "Sydney", "Pulsiva", 16000, "../img/tene
 const productosTenedores = [tenedor1, tenedor2, tenedor3, tenedor4, tenedor5]
 
 let carrito = [];
-
+console.log("carrito afuera: ", carrito)
 if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
+console.log("carrito adentro: ", carrito)
+
 }
 
 const contenedorTenedores = document.getElementById("contenedorTenedores");
@@ -60,11 +62,4 @@ const agregarAlCarrito = (id) => {
     }
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
-
-const contendorCarrito = document.getElementById("contenedorCarrito")
-const verCarrito = document.getElementById("verCarrito");
-
-verCarrito.addEventListener("click", () => {
-    mostrarCarrito();
-})
 

@@ -10,11 +10,11 @@ class producto {
     }
 }
 
-const cuchillo1 = new producto("liverpool", "Nombre: Liverpool", "Marca: Vega", "Precio: 23000", "../img/cuchillo1.jpg", "12 pz.")
-const cuchillo2 = new producto("oslo", "Nombre: Oslo", "Marca: vega", "Precio: 35000", "../img/cuchillo2.jpg", "12 pz.")
-const cuchillo3 = new producto("berlin", "Nombre: Berlin", "Marca: Pulsiva", "Precio: 40000", "../img/cuchillo3.jpg", "12 pz.")
-const cuchillo4 = new producto("colonia", "Nombre: Colonia", "Marca: Vega", "Precio: 48000", "../img/cuchillo4.jpg", "12 pz.")
-const cuchillo5 = new producto("barcelona", "Nombre: Barcelona", "Marca: Vega", "Precio: 23000", "../img/cuchillo5.jpg", "12 pz.")
+const cuchillo1 = new producto("liverpool", "Nombre: Liverpool", "Marca: Vega",  23000, "../img/cuchillo1.jpg", "12 pz.")
+const cuchillo2 = new producto("oslo", "Nombre: Oslo", "Marca: vega",  35000, "../img/cuchillo2.jpg", "12 pz.")
+const cuchillo3 = new producto("berlin", "Nombre: Berlin", "Marca: Pulsiva",  40000, "../img/cuchillo3.jpg", "12 pz.")
+const cuchillo4 = new producto("colonia", "Nombre: Colonia", "Marca: Vega",  48000, "../img/cuchillo4.jpg", "12 pz.")
+const cuchillo5 = new producto("barcelona", "Nombre: Barcelona", "Marca: Vega",  23000, "../img/cuchillo5.jpg", "12 pz.")
 
 const productosCuchillos = [cuchillo1, cuchillo2, cuchillo3, cuchillo4, cuchillo5]
 
@@ -24,7 +24,7 @@ if (localStorage.getItem("carrito")) {
     carrito = JSON.parse(localStorage.getItem("carrito"));
 }
 
-const contenedorCuchillos = document.getElementById("contenedorTenedores");
+const contenedorCuchillos = document.getElementById("contenedorCuchillos");
 
 const mostrarProductos = () => {
     productosCuchillos.forEach(producto => {
