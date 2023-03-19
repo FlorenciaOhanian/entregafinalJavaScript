@@ -16,10 +16,10 @@ fetch(recetasUrl, options)
 			const recetas = document.createElement("div");
 			recetas.classList.add("col-xl-5", "col-md-6", "col-sm-12")
 			recetas.innerHTML = `
-			<div class="containerRecetas">
-		    <p class="itemRecetas"> Receta: ${item.name} </p>
-		    <img class= "imgRecetas" src="${item.thumbnail_url}" alt="">
-	    	</div>`
+			                    <div class="containerRecetas">
+		                        <p class="itemRecetas"> Receta: ${item.name} </p>
+		                        <img class= "imgRecetas" src="${item.thumbnail_url}" alt="">
+	                        	</div>`
 			contenedorRecetas.appendChild(recetas);
 		})
 	})

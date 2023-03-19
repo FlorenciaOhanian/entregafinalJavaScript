@@ -11,10 +11,10 @@ class producto {
 }
 
 const set1 = new producto("siena",  "Siena", "Vega",  100000, "../img/set1.jpg", "12 pz.")
-const set2 = new producto("verona",  "Verona",  "Pulsiva", 120000, "../img/set2.jpg", "12 pz.")
+const set2 = new producto("verona",  "Verona",  "Pulsiva", 120000, "../img/set2.jpg", "24 pz.")
 const set3 = new producto("venecia",  "Venecia",  "Vega", 135000, "../img/set3.jpg", "12 pz.")
 const set4 = new producto("catania",  "Catania",  "Vega", 115000, "../img/set4.jpg", "12 pz.")
-const set5 = new producto("taormina",  "Taormina",  "Pulsiva", 138000, "../img/set5.jpg", "12 pz.")
+const set5 = new producto("taormina",  "Taormina",  "Pulsiva", 138000, "../img/set5.jpg", "24 pz.")
 
 const productosSet = [set1, set2, set3, set4, set5]
 
@@ -35,6 +35,7 @@ const mostrarProductos = () => {
                                                     <img src= " ${producto.img}" class="card-img-top">
                                                     <h5 class="card-title"> Nombre: ${producto.nombre} </h5>
                                                     <p class="card-text"> Marca: ${producto.marca}</p>
+                                                    <p class="card-text"> Unidades: ${producto.unidades}</p>
                                                     <p class="card-text"> Precio: $ ${producto.precio}</p>
                                                     <p class="btn btn-dark" id="boton${producto.id}"> Agregar a carrito </p>
                             </div>`

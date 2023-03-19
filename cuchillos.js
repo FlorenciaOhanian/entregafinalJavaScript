@@ -10,11 +10,11 @@ class producto {
     }
 }
 
-const cuchillo1 = new producto("liverpool", "Nombre: Liverpool", "Marca: Vega",  23000, "../img/cuchillo1.jpg", "12 pz.")
-const cuchillo2 = new producto("oslo", "Nombre: Oslo", "Marca: vega",  35000, "../img/cuchillo2.jpg", "12 pz.")
-const cuchillo3 = new producto("berlin", "Nombre: Berlin", "Marca: Pulsiva",  40000, "../img/cuchillo3.jpg", "12 pz.")
-const cuchillo4 = new producto("colonia", "Nombre: Colonia", "Marca: Vega",  48000, "../img/cuchillo4.jpg", "12 pz.")
-const cuchillo5 = new producto("barcelona", "Nombre: Barcelona", "Marca: Vega",  23000, "../img/cuchillo5.jpg", "12 pz.")
+const cuchillo1 = new producto("liverpool",  "Liverpool", "Vega",  23000, "../img/cuchillo1.jpg", "6 pz.")
+const cuchillo2 = new producto("oslo",  "Oslo",  "Vega",  35000, "../img/cuchillo2.jpg", "12 pz.")
+const cuchillo3 = new producto("berlin",  "Berlin",  "Pulsiva",  40000, "../img/cuchillo3.jpg", "12 pz.")
+const cuchillo4 = new producto("colonia",  "Colonia",  "Vega",  48000, "../img/cuchillo4.jpg", "12 pz.")
+const cuchillo5 = new producto("barcelona",  "Barcelona",  "Vega",  23000, "../img/cuchillo5.jpg", "12 pz.")
 
 const productosCuchillos = [cuchillo1, cuchillo2, cuchillo3, cuchillo4, cuchillo5]
 
@@ -36,6 +36,7 @@ const mostrarProductos = () => {
                                 <img src= " ${producto.img}" class="card-img-top">
                                 <h5 class="card-title"> Nombre: ${producto.nombre} </h5>
                                 <p class="card-text"> Marca: ${producto.marca}</p>
+                                <p class="card-text"> Unidades: ${producto.unidades}</p>
                                 <p class="card-text"> Precio: ${producto.precio}</p>
                                 <button class="btn btn-dark" id="boton${producto.id}"> Agregar al carrito </button>
                             </div>

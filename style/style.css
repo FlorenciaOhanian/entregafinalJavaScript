@@ -37,6 +37,14 @@ body .navbar-toggler {
   border: solid black 3px;
 }
 
+#contenedorRecetas {
+  justify-content: center;
+}
+
+.textRecetas {
+  margin-left: 20px;
+}
+
 .containerRecetas {
   border: solid rgb(206, 177, 197) 6px;
   margin: 60px;

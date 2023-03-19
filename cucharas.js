@@ -9,11 +9,11 @@ class producto {
         this.cantidad = 1;
     }
 }
-const cuchara1 = new producto("salerno", "Nombre: Salerno", "Marca: Pulsiva", 25000, "../img/cuchara1.jpg", "12 pz.")
-const cuchara2 = new producto("torino", "Nombre: Torino", "Marca: Vega", 40000, "../img/cuchara2.jpg", "12 pz.")
-const cuchara3 = new producto("positano", "Nombre: Positano", "Marca: Pulsiva", 30000, "../img/cuchara3.jpg", "12 pz.")
-const cuchara4 = new producto("florencia", "Nombre: Florencia", "Marca: Pulsiva", 45000, "../img/cuchara4.jpg", "12 pz.")
-const cuchara5 = new producto("roma", "Nombre: Roma", "Marca: Vega", 18000,"../img/cuchara5.jpg", "12 pz.")
+const cuchara1 = new producto("salerno", "Salerno",  "Pulsiva", 25000, "../img/cuchara1.jpg", "12 pz.")
+const cuchara2 = new producto("torino", "Torino",  "Vega", 40000, "../img/cuchara2.jpg", "6 pz.")
+const cuchara3 = new producto("positano", "Positano",  "Pulsiva", 30000, "../img/cuchara3.jpg", "12 pz.")
+const cuchara4 = new producto("florencia", "Florencia",  "Pulsiva", 45000, "../img/cuchara4.jpg", "6 pz.")
+const cuchara5 = new producto("roma", "Roma",  "Vega", 18000,"../img/cuchara5.jpg", "12 pz.")
 
 const productosCucharas = [cuchara1, cuchara2, cuchara3, cuchara4, cuchara5]
 
@@ -33,9 +33,10 @@ const mostrarProductos = () => {
                         <div>
                             <div class="card-body">
                                 <img src= " ${producto.img}" class="card-img-top">
-                                <h5 class="card-title"> ${producto.nombre} </h5>
-                                <p class="card-text"> ${producto.marca}</p>
-                                <p class="card-text"> ${producto.precio}</p>
+                                <h5 class="card-title"> Nombre: ${producto.nombre} </h5>
+                                <p class="card-text"> Marca: ${producto.marca}</p>
+                                <p class="card-text"> Unidades: ${producto.unidades}</p>
+                                <p class="card-text"> Precio: ${producto.precio}</p>
                                 <p class="btn btn-dark" id="boton${producto.id}"> Agregar a carrito </p>
                             </div>`
         contenedorCucharas.appendChild(card);

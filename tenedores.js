@@ -11,8 +11,8 @@ class producto {
 }
 const tenedor1 = new producto("estocolmo", "Estocolmo", "Vega", 16000, "../img/tenedor1.jpg", "12 pz.")
 const tenedor2 = new producto("paris", "Paris", "Vega", 40000, "../img/tenedor2.jpg", "12 pz.")
-const tenedor3 = new producto("madrid", "Madrid", "Vega", 18000, "../img/tenedor3.jpg", "12 pz.")
-const tenedor4 = new producto("londres", "Londres", "Vega", 28000, "../img/tenedor4.jpg", "12 pz.")
+const tenedor3 = new producto("madrid", "Madrid", "Vega", 18000, "../img/tenedor3.jpg", "6 pz.")
+const tenedor4 = new producto("londres", "Londres", "Vega", 28000, "../img/tenedor4.jpg", "6 pz.")
 const tenedor5 = new producto("sydney", "Sydney", "Pulsiva", 16000, "../img/tenedor5.jpg", "12 pz.")
 
 const productosTenedores = [tenedor1, tenedor2, tenedor3, tenedor4, tenedor5]
@@ -37,6 +37,7 @@ const mostrarProductos = () => {
                                 <img src= " ${producto.img}" class="card-img-top">
                                 <h5 class="card-title"> Nombre: ${producto.nombre} </h5>
                                 <p class="card-text"> Marca: ${producto.marca}</p>
+                                <p class="card-text"> Unidades: ${producto.unidades}</p>
                                 <p class="card-text"> Precio: ${producto.precio}</p>
                                 <button class="btn btn-dark" id="boton${producto.id}"> Agregar al carrito</button>
                             </div>
